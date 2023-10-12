@@ -5,20 +5,20 @@ using namespace std;
 
 class Solution {
 public:
-  {{cookiecutter.cpp.output_class}} {{ cookiecutter.cpp.method_name }} ({{cookiecutter.cpp.input_class}} s) {
+  {{cookiecutter.output_class}} {{ cookiecutter.method_name }} ({{cookiecutter.input_class}} s) {
  
   }
 };
 
 class MainTest :
-  public ::testing::TestWithParam<tuple<{{ cookiecutter.cpp.input_class }}, {{ cookiecutter.cpp.output_class }}>> {};
+  public ::testing::TestWithParam<tuple<{{ cookiecutter.input_class }}, {{ cookiecutter.output_class }}>> {};
 
 TEST_P(MainTest, romanToInt) {
   Solution solution;
-  {{ cookiecutter.cpp.input_class }} input;
-  {{ cookiecutter.cpp.output_class }} expected;
+  {{ cookiecutter.input_class }} input;
+  {{ cookiecutter.output_class }} expected;
   tie(input, expected) = GetParam();
-  ASSERT_EQ(expected, solution.{{ cookiecutter.cpp.method_name }}(input));
+  ASSERT_EQ(expected, solution.{{ cookiecutter.method_name }}(input));
 };
 
 INSTANTIATE_TEST_SUITE_P(
