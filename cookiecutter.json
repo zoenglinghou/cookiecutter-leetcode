@@ -3,6 +3,23 @@
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
   "author": "zoenglinghou",
   "method_name": "",
-  "input_class": "",
+  "inputs": {
+    "1": {
+      "class": null,
+      "identifier": null
+    },
+    "2": {
+      "class": null,
+      "identifier": null
+    },
+    "3": {
+      "class": null,
+      "identifier": null
+    },
+    "4": {
+      "class": null,
+      "identifier": null
+    }
+  },
   "output_class": ""
 }

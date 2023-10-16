@@ -5,20 +5,48 @@ using namespace std;
 
 class Solution {
 public:
-  {{cookiecutter.output_class}} {{ cookiecutter.method_name }} ({{cookiecutter.input_class}} s) {
+  {{cookiecutter.output_class}} {{ cookiecutter.method_name }} (
+  {%- for _, details in cookiecutter.inputs | dictsort -%}
+    {%- if details.class is not None -%}
+      {{ details.class }} {{ detilas.identifier }},
+    {%- endif -%}
+  {%- endfor -%}
+) {
  
   }
 };
 
 class MainTest :
-  public ::testing::TestWithParam<tuple<{{ cookiecutter.input_class }}, {{ cookiecutter.output_class }}>> {};
+  public ::testing::TestWithParam<tuple<
+  {%- for _, details in cookiecutter.inputs | dictsort -%}
+    {%- if details.class is not None -%}
+      {{ details.class }},
+    {%- endif -%}
+  {%- endfor -%}
+  {{- cookiecutter.output_class -}}>> {};
 
 TEST_P(MainTest, romanToInt) {
   Solution solution;
-  {{ cookiecutter.input_class }} input;
+  {% for _, details in cookiecutter.inputs | dictsort -%}
+    {%- if details.class is not None -%}
+      {{ details.class }} {{ detilas.identifier }};
+    {%- endif -%}
+  {%- endfor %}
   {{ cookiecutter.output_class }} expected;
-  tie(input, expected) = GetParam();
-  ASSERT_EQ(expected, solution.{{ cookiecutter.method_name }}(input));
+  tie(
+    {%- for _, details in cookiecutter.inputs | dictsort -%}
+      {%- if details.class is not None -%}
+        {{ detilas.identifier }},
+      {%- endif -%}
+    {%- endfor -%}
+  expected) = GetParam();
+  ASSERT_EQ(expected, solution.{{ cookiecutter.method_name }}(
+    {%- for _, details in cookiecutter.inputs | dictsort -%}
+      {%- if details.class is not None -%}
+        {{ detilas.identifier }},
+      {%- endif -%}
+    {%- endfor -%}
+  ));
 };
 
 INSTANTIATE_TEST_SUITE_P(
