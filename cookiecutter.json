@@ -1,5 +1,5 @@
 {
-  "project_name": "Leetcode C++ template",
-  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+  "project_name": "lc000",
+  "project_slug": "{{ cookiecutter.project_name[2:] }}-{{ cookiecutter.project_description.lower().replace(' ', '-') }}",
   "project_description": "Leetcode C++ template"
 }
