@@ -1,14 +1,29 @@
 cmake_minimum_required(VERSION 3.5)
-project({{ cookiecutter.project_name }})
+project({{ project_name }} CXX)
 
-find_package(GTest REQUIRED)
+# Default to C++17
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 17)
+  set(CMAKE_CXX_STANDARD_REQUIRED ON)
+endif()
 
-enable_testing()
+# Debug build
+set(CMAKE_BUILD_TYPE Debug)
 
-add_executable(${PROJECT_NAME} main.cpp)
-target_link_libraries(${PROJECT_NAME}
-  GTest::gtest_main
+add_compile_options(-Wall -Wextra -Wpedantic -fsanitize=address -fsanitize=undefined)
+add_link_options(-fsanitize=address -fsanitize=undefined)
+
+find_package(lib-leetcode REQUIRED)
+find_package(ament_cmake REQUIRED)
+find_package(ament_cmake_gtest REQUIRED)
+
+include_directories(include)
+
+set(TEST_SRC
+  main.cpp
 )
 
-include(GoogleTest)
-gtest_discover_tests(${PROJECT_NAME})
+ament_add_gtest(${PROJECT_NAME}_test ${TEST_SRC})
+ament_target_dependencies(${PROJECT_NAME}_test lib-leetcode)
+
+ament_package()

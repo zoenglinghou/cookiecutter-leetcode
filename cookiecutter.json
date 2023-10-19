@@ -1,25 +1,5 @@
 {
   "project_name": "Leetcode C++ template",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
-  "author": "zoenglinghou",
-  "method_name": "",
-  "inputs": {
-    "1": {
-      "class": null,
-      "identifier": null
-    },
-    "2": {
-      "class": null,
-      "identifier": null
-    },
-    "3": {
-      "class": null,
-      "identifier": null
-    },
-    "4": {
-      "class": null,
-      "identifier": null
-    }
-  },
-  "output_class": ""
+  "project_description": "Leetcode C++ template"
 }
