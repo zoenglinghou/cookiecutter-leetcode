@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project({{ cookiecutter.project_name }} CXX)
+project(lc-{{ cookiecutter.project_name }} CXX)
 
 # Default to C++17
 if(NOT CMAKE_CXX_STANDARD)

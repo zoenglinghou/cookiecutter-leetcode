@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-mode href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
-  <name>{{ cookiecutter.project_name }}</name>
+  <name>lc-{{ cookiecutter.project_name }}</name>
   <version>0.0.0</version>
   <description>{{ cookiecutter.project_description }}</description>
 
