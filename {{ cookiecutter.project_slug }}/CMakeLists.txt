@@ -25,5 +25,6 @@ set(TEST_SRC
 
 ament_add_gtest(${PROJECT_NAME}_test ${TEST_SRC})
 ament_target_dependencies(${PROJECT_NAME}_test lib-leetcode)
+set_tests_properties(${PROJECT_NAME}_test PROPERTIES TIMEOUT 2)
 
 ament_package()
